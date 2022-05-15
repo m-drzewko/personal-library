@@ -2,14 +2,13 @@ package com.drzewek.personallibrary.service;
 
 import com.drzewek.personallibrary.model.Author;
 import com.drzewek.personallibrary.model.Book;
-import com.drzewek.personallibrary.model.dto.BookSingleAuthorWriteDto;
 import com.drzewek.personallibrary.model.Publisher;
+import com.drzewek.personallibrary.model.dto.BookSingleAuthorWriteDto;
 import com.drzewek.personallibrary.repository.BookRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Set;
 
 /**
  * Book service stores all the logic behind reading and writing content from and to the database,

@@ -1,6 +1,5 @@
 package com.drzewek.personallibrary.controller;
 
-import com.drzewek.personallibrary.model.Author;
 import com.drzewek.personallibrary.model.Book;
 import com.drzewek.personallibrary.model.dto.BookSingleAuthorWriteDto;
 import com.drzewek.personallibrary.service.BookService;
@@ -28,7 +27,7 @@ public class BookController {
         return new ResponseEntity<>(bookService.getAllBooks(), HttpStatus.ACCEPTED);
     }
 
-    @PostMapping("/addAuthor/{book_id}/{author_id}")
+    @PutMapping("/{bookId}/addAuthor/{authorId}")
     ResponseEntity<Book> assignAuthorToBook(@PathVariable Long bookId, @PathVariable Long authorId) {
         return new ResponseEntity<>(bookService.assignAuthorToBook(bookId, authorId), HttpStatus.OK);
     }

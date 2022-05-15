@@ -1,6 +1,5 @@
 package com.drzewek.personallibrary.service;
 
-import com.drzewek.personallibrary.model.Author;
 import com.drzewek.personallibrary.model.Publisher;
 import com.drzewek.personallibrary.repository.PublisherRepository;
 import lombok.AllArgsConstructor;
