@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * Book service stores all the logic behind reading and writing content from and to the database,
@@ -89,5 +90,9 @@ public class BookService {
             }
         }
         return false;
+    }
+
+    public Book getBook(Long id) {
+        return bookRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
 }

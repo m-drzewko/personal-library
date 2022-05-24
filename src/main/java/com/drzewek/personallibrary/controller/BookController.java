@@ -27,6 +27,11 @@ public class BookController {
         return new ResponseEntity<>(bookService.getAllBooks(), HttpStatus.ACCEPTED);
     }
 
+    @GetMapping("/{id}")
+    ResponseEntity<Book> getBookById(@PathVariable Long id) {
+        return new ResponseEntity<>(bookService.getBook(id), HttpStatus.ACCEPTED);
+    }
+
     @PutMapping("/{bookId}/addAuthor/{authorId}")
     ResponseEntity<Book> assignAuthorToBook(@PathVariable Long bookId, @PathVariable Long authorId) {
         return new ResponseEntity<>(bookService.assignAuthorToBook(bookId, authorId), HttpStatus.OK);
