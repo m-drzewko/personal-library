@@ -17,4 +17,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     Optional<List<Book>> findByTitle(String title);
 
     boolean existsByPublisher(String name);
+//    @Query("SELECT b FROM Book b WHERE b.authors")
+//    Optional<List<Book>> findByAuthor(String firstName, String lastName);
 }

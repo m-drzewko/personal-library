@@ -36,4 +36,15 @@ public class BookController {
     ResponseEntity<Book> assignAuthorToBook(@PathVariable Long bookId, @PathVariable Long authorId) {
         return new ResponseEntity<>(bookService.assignAuthorToBook(bookId, authorId), HttpStatus.OK);
     }
+
+//    @GetMapping("/get/{firstName}/{lastName}")
+//    ResponseEntity<List<Book>> getBooksByAuthor(@PathVariable String firstName, @PathVariable String lastName) {
+//        return new ResponseEntity<>(bookService.findBookByAuthor(firstName, lastName), HttpStatus.ACCEPTED);
+//    }
+
+    // does not seem to work correctly, returns nothing
+//    @GetMapping("/getTitled")
+//    ResponseEntity<List<Book>> getBooksByTitleContaining(@RequestBody String title) {
+//        return new ResponseEntity<>(bookService.getBooksByTitleContaining(title), HttpStatus.ACCEPTED);
+//    }
 }

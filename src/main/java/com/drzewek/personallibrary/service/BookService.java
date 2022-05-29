@@ -95,4 +95,13 @@ public class BookService {
     public Book getBook(Long id) {
         return bookRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
+
+//    public List<Book> findBookByAuthor(String firstName, String lastName) {
+//        return bookRepository.findByAuthor(firstName, lastName).orElseThrow(NoSuchElementException::new);
+//    }
+
+    // does not seem to work correctly, returns nothing
+//    public List<Book> getBooksByTitleContaining(String title) {
+//        return bookRepository.findByTitle(title).orElseThrow(NoSuchElementException::new);
+//    }
 }
