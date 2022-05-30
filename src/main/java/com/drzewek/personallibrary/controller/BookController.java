@@ -1,7 +1,10 @@
 package com.drzewek.personallibrary.controller;
 
+import com.drzewek.personallibrary.model.Author;
 import com.drzewek.personallibrary.model.Book;
+import com.drzewek.personallibrary.model.dto.AuthorReadWriteDto;
 import com.drzewek.personallibrary.model.dto.BookSingleAuthorWriteDto;
+import com.drzewek.personallibrary.service.AuthorService;
 import com.drzewek.personallibrary.service.BookService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -9,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @AllArgsConstructor
@@ -16,6 +20,7 @@ import java.util.List;
 public class BookController {
 
     private BookService bookService;
+    private AuthorService authorService;
 
     @PostMapping("/save")
     ResponseEntity<Book> saveBookWithSingleAuthor(@RequestBody BookSingleAuthorWriteDto book) {
@@ -37,14 +42,13 @@ public class BookController {
         return new ResponseEntity<>(bookService.assignAuthorToBook(bookId, authorId), HttpStatus.OK);
     }
 
-//    @GetMapping("/get/{firstName}/{lastName}")
-//    ResponseEntity<List<Book>> getBooksByAuthor(@PathVariable String firstName, @PathVariable String lastName) {
-//        return new ResponseEntity<>(bookService.findBookByAuthor(firstName, lastName), HttpStatus.ACCEPTED);
-//    }
+    @GetMapping("/getbyauthor")
+    ResponseEntity<List<Book>> getBooksByAuthor(@RequestBody AuthorReadWriteDto author) {
+        Author authorToFind = authorService.getAuthorByNameAndLastName(author.getFirstName(), author.getLastName());
+        return new ResponseEntity<>(authorToFind.getBooks()
+                .stream()
+                .collect(Collectors.toList()),
+                HttpStatus.ACCEPTED);
+    }
 
-    // does not seem to work correctly, returns nothing
-//    @GetMapping("/getTitled")
-//    ResponseEntity<List<Book>> getBooksByTitleContaining(@RequestBody String title) {
-//        return new ResponseEntity<>(bookService.getBooksByTitleContaining(title), HttpStatus.ACCEPTED);
-//    }
 }

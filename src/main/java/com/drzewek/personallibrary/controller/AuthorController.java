@@ -1,7 +1,7 @@
 package com.drzewek.personallibrary.controller;
 
 import com.drzewek.personallibrary.model.Author;
-import com.drzewek.personallibrary.model.dto.AuthorWriteDto;
+import com.drzewek.personallibrary.model.dto.AuthorReadWriteDto;
 import com.drzewek.personallibrary.service.AuthorService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -23,7 +23,7 @@ public class AuthorController {
     }
 
     @PostMapping("/save")
-    ResponseEntity<Author> saveAuthor(@RequestBody AuthorWriteDto author) {
+    ResponseEntity<Author> saveAuthor(@RequestBody AuthorReadWriteDto author) {
         return new ResponseEntity<>(authorService.saveAuthor(author), HttpStatus.CREATED);
     }
 

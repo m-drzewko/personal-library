@@ -3,7 +3,7 @@ package com.drzewek.personallibrary.model.dto;
 import lombok.Getter;
 
 @Getter
-public class AuthorWriteDto {
+public class AuthorReadWriteDto {
     /**
      * This Author DTO is used to save an author to the repository
      */

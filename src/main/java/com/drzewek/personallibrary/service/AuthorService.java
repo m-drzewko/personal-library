@@ -1,7 +1,7 @@
 package com.drzewek.personallibrary.service;
 
 import com.drzewek.personallibrary.model.Author;
-import com.drzewek.personallibrary.model.dto.AuthorWriteDto;
+import com.drzewek.personallibrary.model.dto.AuthorReadWriteDto;
 import com.drzewek.personallibrary.repository.AuthorRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,7 +19,7 @@ public class AuthorService {
         return authorRepository.existsByFirstNameAndLastName(author.getFirstName(), author.getLastName());
     }
 
-    public Author saveAuthor(AuthorWriteDto authorToSave) {
+    public Author saveAuthor(AuthorReadWriteDto authorToSave) {
         Author toSave = new Author(authorToSave.getFirstName(), authorToSave.getLastName());
 
         if (authorRepository.existsByFirstNameAndLastName(toSave.getFirstName(), toSave.getLastName())) {
@@ -43,5 +43,9 @@ public class AuthorService {
 
     public List<Author> getAllAuthors() {
         return authorRepository.findAll();
+    }
+
+    public Author getAuthorByNameAndLastName(String firstName, String lastName) {
+        return authorRepository.findByFirstNameAndLastName(firstName, lastName).orElseThrow(NoSuchElementException::new);
     }
 }
