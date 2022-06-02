@@ -96,6 +96,10 @@ public class BookService {
         return bookRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
 
+    /**
+     * maybe try doing the below using authorService?
+     */
+
 //    public List<Book> findBookByAuthor(String firstName, String lastName) {
 //        return bookRepository.findByAuthor(firstName, lastName).orElseThrow(NoSuchElementException::new);
 //    }

@@ -5,6 +5,7 @@ import com.drzewek.personallibrary.repository.PublisherRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
@@ -23,5 +24,9 @@ public class PublisherService {
 
     public Publisher getPublisher(Long id) {
         return publisherRepository.findById(id).orElseThrow(NoSuchElementException::new);
+    }
+
+    public List<Publisher> getAllPublishers() {
+        return publisherRepository.findAll();
     }
 }
