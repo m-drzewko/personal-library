@@ -1,6 +1,7 @@
 package com.drzewek.personallibrary.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,7 +20,7 @@ public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Setter
+    @Setter(AccessLevel.NONE)
     private Long id;
     private String firstName;
     private String lastName;

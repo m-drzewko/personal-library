@@ -8,7 +8,7 @@ public class BookSingleAuthorWriteDto {
     /**
      * This Book DTO stores information about a book with a single author
      * for the purpose of saving a book with an author right away
-     * instead of creating both separately and then assigning one to another
+     * instead of creating both separately and then assigning one to another.
      *
      * Note that for books with multiple authors that is still the case
      */

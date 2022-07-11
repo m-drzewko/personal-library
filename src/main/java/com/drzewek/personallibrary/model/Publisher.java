@@ -1,6 +1,7 @@
 package com.drzewek.personallibrary.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,6 +19,7 @@ public class Publisher {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Setter (AccessLevel.NONE)
     private Long id;
     private String name;
     @OneToMany(mappedBy = "publisher")
