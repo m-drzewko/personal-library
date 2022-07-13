@@ -32,6 +32,4 @@ public class AuthorController {
         return new ResponseEntity<>(authorService.getAuthor(id), HttpStatus.ACCEPTED);
     }
 
-
-
 }

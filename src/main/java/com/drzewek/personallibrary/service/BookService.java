@@ -3,6 +3,7 @@ package com.drzewek.personallibrary.service;
 import com.drzewek.personallibrary.model.Author;
 import com.drzewek.personallibrary.model.Book;
 import com.drzewek.personallibrary.model.Publisher;
+import com.drzewek.personallibrary.model.Status;
 import com.drzewek.personallibrary.model.dto.BookSingleAuthorWriteDto;
 import com.drzewek.personallibrary.repository.BookRepository;
 import lombok.AllArgsConstructor;
@@ -94,6 +95,27 @@ public class BookService {
 
     public Book getBook(Long id) {
         return bookRepository.findById(id).orElseThrow(NoSuchElementException::new);
+    }
+
+    public Book toggleStatus(Long id) {
+        Book book = bookRepository.getById(id);
+
+        switch (book.getStatus()) {
+            case IN_PROGRESS:
+                book.setStatus(Status.READ);
+                break;
+            case READ:
+                book.setStatus(Status.LENT);
+                break;
+            case LENT:
+                book.setStatus(Status.NEW);
+                break;
+            default:
+                book.setStatus(Status.IN_PROGRESS);
+                break;
+        }
+
+        return bookRepository.save(book);
     }
 
     /**

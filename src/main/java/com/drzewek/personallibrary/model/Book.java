@@ -31,6 +31,8 @@ public class Book {
     @JoinColumn(name = "publisher_id")
     private Publisher publisher;
 
+    private Status status = Status.NEW;
+
     public Publisher addPublisher(Publisher newPublisher) {
         publisher = newPublisher;
         return publisher;
@@ -78,6 +80,7 @@ public class Book {
                 ", title='" + title + '\'' +
                 ", authors=" + authors +
                 ", publisher=" + publisher +
+                ", status=" + status +
                 '}';
     }
 }

@@ -51,4 +51,9 @@ public class BookController {
                 HttpStatus.ACCEPTED);
     }
 
+    @GetMapping("/{id}/toggle")
+    ResponseEntity<Book> toggleBookStatus(@PathVariable Long id) {
+        return new ResponseEntity<>(bookService.toggleStatus(id), HttpStatus.ACCEPTED);
+    }
+
 }
